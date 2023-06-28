@@ -1,0 +1,2033 @@
+==============================
+====YAML Parameters
+MODEL_SAVE_PATH: /root/project/sobel_3dsslmse_lpips001_Glipips001/X2CT-master/3DGAN/save_models
+CT_MIN_MAX: [0, 2500]
+XRAY1_MIN_MAX: [0, 255]
+XRAY2_MIN_MAX: [0, 255]
+CT_MEAN_STD: [0.0, 1.0]
+XRAY1_MEAN_STD: [0.0, 1.0]
+XRAY2_MEAN_STD: [0.0, 1.0]
+input_nc_G: 512
+output_nc_G: 1
+ngf: 64
+which_model_netG: multiview_network_denseUNetFuse_transposed
+norm_G: instance3d
+no_dropout: True
+init_type: normal
+ganloss: lsgan
+n_downsampling: 4
+n_blocks: 1
+activation_type: relu
+input_nc_D: 1
+ndf: 64
+which_model_netD: basic3d
+n_layers_D: 3
+norm_D: instance3d
+n_out_ChannelsD: 1
+pool_size: 50
+if_pool: False
+num_D: 3
+conditional_D: True
+map_input_nc_D: 1
+map_ndf: 64
+map_which_model_netD: multi2d
+map_n_layers_D: 3
+map_norm_D: instance
+map_n_out_ChannelsD: 1
+map_pool_size: 50
+map_num_D: 3
+lr: 0.0002
+beta1: 0.5
+beta2: 0.99
+serial_batches: False
+batch_size: 4
+nThreads: 5
+lr_policy: lambda
+niter: 50
+niter_decay: 50
+lr_decay_iters: 50
+print_freq: 10
+print_img_freq: 500
+save_latest_freq: 1000
+save_epoch_freq: 5
+begin_save_epoch: 0
+weight_decay_if: False
+howmany_in_train: 10
+select_slice_num: 0
+fine_size: 128
+ct_channel: 128
+xray_channel: 1
+resize_size: 150
+idt_lambda: 10.0
+idt_reduction: mean
+idt_weight: 0.0
+idt_weight_range: [0.0, 1.0]
+restruction_loss: mse
+fea_m_lambda: 10.0
+discriminator_feature: False
+wgan_gp_lambda: 10.0
+map_m_lambda: 0.0
+map_m_type: l1
+fea_m_map_lambda: 10.0
+critic_times: 1
+noise_len: 1000
+input_shape: [4, 4, 4]
+output_shape: [128, 128, 128]
+encoder_input_shape: [128, 128]
+encoder_input_nc: 1
+encoder_norm: instance
+encoder_blocks: 3
+multi_view: [1, 2, 3]
+min_max_norm: True
+skip_number: 1
+dblu: [0.0, 1.0, 1.0]
+Xray1_Direction: HDW
+Xray2_Direction: WDH
+CTOrder: [0, 1, 2, 3, 4]
+CTOrder_Xray1: [0, 1, 3, 2, 4]
+CTOrder_Xray2: [0, 1, 4, 2, 3]
+idt_loss: mse
+feature_D_lambda: 0.0
+map_projection_lambda: 10.0
+map_projection_loss: l1
+gan_lambda: 0.1
+auxiliary_lambda: 0.0
+auxiliary_loss: mse
+feature_D_map_lambda: 0.0
+map_gan_lambda: 1.0
+data: /root/autodl-tmp/sobel_3dsslmse_lpips001_Glipips001
+tag: d2_multiview2500
+dataroot: /root/autodl-tmp/LIDC90G/LIDC-HDF5-256
+dataset: train
+valid_dataset: test
+datasetfile: /root/autodl-tmp/LIDC90G/LIDC-HDF5-256/train.txt
+valid_datasetfile: /root/autodl-tmp/LIDC90G/LIDC-HDF5-256/test.txt
+ymlpath: /root/project/sobel_3dsslmse_lpips001_Glipips001/X2CT-master/3DGAN/experiment/multiview2500/d2_multiview2500.yml
+gpuid: 0
+dataset_class: align_ct_xray_views_std
+model_class: MultiViewCTGAN
+check_point: None
+load_path: None
+latest: False
+verbose: False
+gpu_ids: [0]
+epoch_count: 1
+==============================
+Valid DataSet is AlignDataSet
+#validation images = 102
+DataSet is AlignDataSet
+#training images = 458
+Setting up Perceptual loss...
+Loading model from: /root/project/sobel_3dsslmse_lpips001_Glipips001/X2CT-master/3DGAN/lib/model/lpips/weights/v0.1/vgg.pth
+...[net-lin [vgg]] initialized
+...Done
+Model --multiView_CTGAN-- will be Used
+initialize network parameters with normal
+initialize network parameters with normal
+GAN loss: LSGAN
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 72.978 M
+[Network D] Total number of parameters : 38.899 M
+-----------------------------------------------
+total step: 458 timer: 2.5598 sec.
+epoch 0/100, step457:458 || total loss:2.5959
+every_epoch_time =  1270.6660499572754
+D_epoch_loss = 0.84339
+D_epoch_loss_lpips = 0.55789
+D_epoch_loss_mes = 0.24744
+D_epoch_loss_d = 0.03806
+G_epoch_loss = 1.75248
+GGAN_epoch_loss = 0.06958
+idt_epoch_loss = 0.21963
+map_epoch_loss = 0.48674
+G_epoch_loss_lpips = 0.97653
+
+saving the model at the end of epoch 0, iters 458
+End of epoch 0 / 100 	 Time Taken: 1271 sec
+learning rate = 0.0002000
+/root/miniconda3/envs/mypytorch/lib/python3.7/site-packages/torch/optim/lr_scheduler.py:156: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+total step: 916 timer: 2.5620 sec.
+epoch 1/100, step457:458 || total loss:1.7489
+every_epoch_time =  1273.6424205303192
+D_epoch_loss = 0.49720
+D_epoch_loss_lpips = 0.34987
+D_epoch_loss_mes = 0.11364
+D_epoch_loss_d = 0.03369
+G_epoch_loss = 1.25167
+GGAN_epoch_loss = 0.05923
+idt_epoch_loss = 0.13443
+map_epoch_loss = 0.32711
+G_epoch_loss_lpips = 0.73090
+
+End of epoch 1 / 100 	 Time Taken: 1273 sec
+learning rate = 0.0002000
+total step: 1374 timer: 2.5624 sec.
+epoch 2/100, step457:458 || total loss:1.5162
+every_epoch_time =  1274.043826341629
+D_epoch_loss = 0.40472
+D_epoch_loss_lpips = 0.28720
+D_epoch_loss_mes = 0.09012
+D_epoch_loss_d = 0.02740
+G_epoch_loss = 1.11147
+GGAN_epoch_loss = 0.06592
+idt_epoch_loss = 0.11640
+map_epoch_loss = 0.26656
+G_epoch_loss_lpips = 0.66260
+
+End of epoch 2 / 100 	 Time Taken: 1274 sec
+learning rate = 0.0002000
+total step: 1832 timer: 2.5624 sec.
+epoch 3/100, step457:458 || total loss:1.3939
+every_epoch_time =  1272.4108130931854
+D_epoch_loss = 0.35525
+D_epoch_loss_lpips = 0.25336
+D_epoch_loss_mes = 0.07720
+D_epoch_loss_d = 0.02469
+G_epoch_loss = 1.03866
+GGAN_epoch_loss = 0.06801
+idt_epoch_loss = 0.10731
+map_epoch_loss = 0.23995
+G_epoch_loss_lpips = 0.62339
+
+End of epoch 3 / 100 	 Time Taken: 1272 sec
+learning rate = 0.0002000
+total step: 2290 timer: 2.5616 sec.
+epoch 4/100, step457:458 || total loss:1.3038
+every_epoch_time =  1273.443753004074
+D_epoch_loss = 0.32449
+D_epoch_loss_lpips = 0.23167
+D_epoch_loss_mes = 0.06873
+D_epoch_loss_d = 0.02410
+G_epoch_loss = 0.97928
+GGAN_epoch_loss = 0.06928
+idt_epoch_loss = 0.09928
+map_epoch_loss = 0.22200
+G_epoch_loss_lpips = 0.58873
+
+End of epoch 4 / 100 	 Time Taken: 1273 sec
+learning rate = 0.0002000
+total step: 2748 timer: 2.5870 sec.
+epoch 5/100, step457:458 || total loss:1.2398
+every_epoch_time =  1275.743311882019
+D_epoch_loss = 0.30190
+D_epoch_loss_lpips = 0.21448
+D_epoch_loss_mes = 0.06349
+D_epoch_loss_d = 0.02393
+G_epoch_loss = 0.93795
+GGAN_epoch_loss = 0.06870
+idt_epoch_loss = 0.09385
+map_epoch_loss = 0.20782
+G_epoch_loss_lpips = 0.56758
+
+saving the model at the end of epoch 5, iters 2748
+End of epoch 5 / 100 	 Time Taken: 1276 sec
+learning rate = 0.0002000
+total step: 3206 timer: 2.5588 sec.
+epoch 6/100, step457:458 || total loss:1.1849
+every_epoch_time =  1272.6830444335938
+D_epoch_loss = 0.27941
+D_epoch_loss_lpips = 0.19934
+D_epoch_loss_mes = 0.05815
+D_epoch_loss_d = 0.02192
+G_epoch_loss = 0.90546
+GGAN_epoch_loss = 0.07132
+idt_epoch_loss = 0.08934
+map_epoch_loss = 0.19562
+G_epoch_loss_lpips = 0.54918
+
+End of epoch 6 / 100 	 Time Taken: 1272 sec
+learning rate = 0.0002000
+total step: 3664 timer: 2.5643 sec.
+epoch 7/100, step457:458 || total loss:1.1435
+every_epoch_time =  1274.0547420978546
+D_epoch_loss = 0.26855
+D_epoch_loss_lpips = 0.19152
+D_epoch_loss_mes = 0.05503
+D_epoch_loss_d = 0.02200
+G_epoch_loss = 0.87494
+GGAN_epoch_loss = 0.07135
+idt_epoch_loss = 0.08479
+map_epoch_loss = 0.18622
+G_epoch_loss_lpips = 0.53258
+
+End of epoch 7 / 100 	 Time Taken: 1274 sec
+learning rate = 0.0002000
+total step: 4122 timer: 2.5778 sec.
+epoch 8/100, step457:458 || total loss:1.1098
+every_epoch_time =  1278.3144512176514
+D_epoch_loss = 0.25448
+D_epoch_loss_lpips = 0.18168
+D_epoch_loss_mes = 0.05128
+D_epoch_loss_d = 0.02152
+G_epoch_loss = 0.85533
+GGAN_epoch_loss = 0.07137
+idt_epoch_loss = 0.08259
+map_epoch_loss = 0.17928
+G_epoch_loss_lpips = 0.52210
+
+End of epoch 8 / 100 	 Time Taken: 1278 sec
+learning rate = 0.0002000
+total step: 4580 timer: 2.5942 sec.
+epoch 9/100, step457:458 || total loss:1.0839
+every_epoch_time =  1283.9836654663086
+D_epoch_loss = 0.24171
+D_epoch_loss_lpips = 0.17339
+D_epoch_loss_mes = 0.04860
+D_epoch_loss_d = 0.01973
+G_epoch_loss = 0.84217
+GGAN_epoch_loss = 0.07408
+idt_epoch_loss = 0.08030
+map_epoch_loss = 0.17368
+G_epoch_loss_lpips = 0.51410
+
+End of epoch 9 / 100 	 Time Taken: 1283 sec
+learning rate = 0.0002000
+total step: 5038 timer: 2.5756 sec.
+epoch 10/100, step457:458 || total loss:1.0593
+every_epoch_time =  1284.4844138622284
+D_epoch_loss = 0.23554
+D_epoch_loss_lpips = 0.16846
+D_epoch_loss_mes = 0.04736
+D_epoch_loss_d = 0.01972
+G_epoch_loss = 0.82376
+GGAN_epoch_loss = 0.07429
+idt_epoch_loss = 0.07770
+map_epoch_loss = 0.16757
+G_epoch_loss_lpips = 0.50420
+
+saving the model at the end of epoch 10, iters 5038
+End of epoch 10 / 100 	 Time Taken: 1285 sec
+learning rate = 0.0002000
+total step: 5496 timer: 2.5974 sec.
+epoch 11/100, step457:458 || total loss:1.0411
+every_epoch_time =  1284.5509424209595
+D_epoch_loss = 0.22635
+D_epoch_loss_lpips = 0.16186
+D_epoch_loss_mes = 0.04523
+D_epoch_loss_d = 0.01926
+G_epoch_loss = 0.81476
+GGAN_epoch_loss = 0.07443
+idt_epoch_loss = 0.07667
+map_epoch_loss = 0.16351
+G_epoch_loss_lpips = 0.50015
+
+End of epoch 11 / 100 	 Time Taken: 1284 sec
+learning rate = 0.0002000
+total step: 5954 timer: 2.5983 sec.
+epoch 12/100, step457:458 || total loss:1.0233
+every_epoch_time =  1283.221051454544
+D_epoch_loss = 0.22020
+D_epoch_loss_lpips = 0.15716
+D_epoch_loss_mes = 0.04366
+D_epoch_loss_d = 0.01938
+G_epoch_loss = 0.80315
+GGAN_epoch_loss = 0.07422
+idt_epoch_loss = 0.07450
+map_epoch_loss = 0.16107
+G_epoch_loss_lpips = 0.49335
+
+End of epoch 12 / 100 	 Time Taken: 1283 sec
+learning rate = 0.0002000
+total step: 6412 timer: 2.5966 sec.
+epoch 13/100, step457:458 || total loss:1.0007
+every_epoch_time =  1284.3998231887817
+D_epoch_loss = 0.21310
+D_epoch_loss_lpips = 0.15316
+D_epoch_loss_mes = 0.04112
+D_epoch_loss_d = 0.01883
+G_epoch_loss = 0.78757
+GGAN_epoch_loss = 0.07449
+idt_epoch_loss = 0.07241
+map_epoch_loss = 0.15465
+G_epoch_loss_lpips = 0.48601
+
+End of epoch 13 / 100 	 Time Taken: 1284 sec
+learning rate = 0.0002000
+total step: 6870 timer: 2.5958 sec.
+epoch 14/100, step457:458 || total loss:0.9856
+every_epoch_time =  1284.369115114212
+D_epoch_loss = 0.20659
+D_epoch_loss_lpips = 0.14754
+D_epoch_loss_mes = 0.04049
+D_epoch_loss_d = 0.01855
+G_epoch_loss = 0.77905
+GGAN_epoch_loss = 0.07509
+idt_epoch_loss = 0.07102
+map_epoch_loss = 0.15172
+G_epoch_loss_lpips = 0.48122
+
+End of epoch 14 / 100 	 Time Taken: 1284 sec
+learning rate = 0.0002000
+total step: 7328 timer: 2.6008 sec.
+epoch 15/100, step457:458 || total loss:0.9769
+every_epoch_time =  1284.049320936203
+D_epoch_loss = 0.20500
+D_epoch_loss_lpips = 0.14647
+D_epoch_loss_mes = 0.04013
+D_epoch_loss_d = 0.01841
+G_epoch_loss = 0.77189
+GGAN_epoch_loss = 0.07538
+idt_epoch_loss = 0.06989
+map_epoch_loss = 0.14888
+G_epoch_loss_lpips = 0.47774
+
+saving the model at the end of epoch 15, iters 7328
+End of epoch 15 / 100 	 Time Taken: 1285 sec
+learning rate = 0.0002000
+total step: 7786 timer: 2.5934 sec.
+epoch 16/100, step457:458 || total loss:0.9576
+every_epoch_time =  1285.6837410926819
+D_epoch_loss = 0.19717
+D_epoch_loss_lpips = 0.14144
+D_epoch_loss_mes = 0.03778
+D_epoch_loss_d = 0.01794
+G_epoch_loss = 0.76046
+GGAN_epoch_loss = 0.07543
+idt_epoch_loss = 0.06855
+map_epoch_loss = 0.14523
+G_epoch_loss_lpips = 0.47125
+
+End of epoch 16 / 100 	 Time Taken: 1285 sec
+learning rate = 0.0002000
+total step: 8244 timer: 2.5928 sec.
+epoch 17/100, step457:458 || total loss:0.9445
+every_epoch_time =  1284.5586626529694
+D_epoch_loss = 0.19178
+D_epoch_loss_lpips = 0.13797
+D_epoch_loss_mes = 0.03636
+D_epoch_loss_d = 0.01745
+G_epoch_loss = 0.75269
+GGAN_epoch_loss = 0.07666
+idt_epoch_loss = 0.06697
+map_epoch_loss = 0.14371
+G_epoch_loss_lpips = 0.46534
+
+End of epoch 17 / 100 	 Time Taken: 1284 sec
+learning rate = 0.0002000
+total step: 8702 timer: 2.5774 sec.
+epoch 18/100, step457:458 || total loss:0.9324
+every_epoch_time =  1283.9116184711456
+D_epoch_loss = 0.18870
+D_epoch_loss_lpips = 0.13628
+D_epoch_loss_mes = 0.03632
+D_epoch_loss_d = 0.01610
+G_epoch_loss = 0.74367
+GGAN_epoch_loss = 0.07803
+idt_epoch_loss = 0.06531
+map_epoch_loss = 0.13931
+G_epoch_loss_lpips = 0.46101
+
+End of epoch 18 / 100 	 Time Taken: 1283 sec
+learning rate = 0.0002000
+total step: 9160 timer: 2.5767 sec.
+epoch 19/100, step457:458 || total loss:0.9260
+every_epoch_time =  1284.1105418205261
+D_epoch_loss = 0.18392
+D_epoch_loss_lpips = 0.13332
+D_epoch_loss_mes = 0.03480
+D_epoch_loss_d = 0.01580
+G_epoch_loss = 0.74212
+GGAN_epoch_loss = 0.07860
+idt_epoch_loss = 0.06525
+map_epoch_loss = 0.13897
+G_epoch_loss_lpips = 0.45930
+
+End of epoch 19 / 100 	 Time Taken: 1284 sec
+learning rate = 0.0002000
+total step: 9618 timer: 2.5966 sec.
+epoch 20/100, step457:458 || total loss:0.9133
+every_epoch_time =  1282.7841436862946
+D_epoch_loss = 0.18065
+D_epoch_loss_lpips = 0.13037
+D_epoch_loss_mes = 0.03464
+D_epoch_loss_d = 0.01564
+G_epoch_loss = 0.73264
+GGAN_epoch_loss = 0.07865
+idt_epoch_loss = 0.06374
+map_epoch_loss = 0.13563
+G_epoch_loss_lpips = 0.45460
+
+saving the model at the end of epoch 20, iters 9618
+End of epoch 20 / 100 	 Time Taken: 1283 sec
+learning rate = 0.0002000
+total step: 10076 timer: 2.5749 sec.
+epoch 21/100, step457:458 || total loss:0.9030
+every_epoch_time =  1282.8138144016266
+D_epoch_loss = 0.17647
+D_epoch_loss_lpips = 0.12860
+D_epoch_loss_mes = 0.03320
+D_epoch_loss_d = 0.01467
+G_epoch_loss = 0.72652
+GGAN_epoch_loss = 0.07995
+idt_epoch_loss = 0.06243
+map_epoch_loss = 0.13406
+G_epoch_loss_lpips = 0.45008
+
+End of epoch 21 / 100 	 Time Taken: 1282 sec
+learning rate = 0.0002000
+total step: 10534 timer: 2.5951 sec.
+epoch 22/100, step457:458 || total loss:0.8970
+every_epoch_time =  1285.0388441085815
+D_epoch_loss = 0.17464
+D_epoch_loss_lpips = 0.12719
+D_epoch_loss_mes = 0.03304
+D_epoch_loss_d = 0.01442
+G_epoch_loss = 0.72241
+GGAN_epoch_loss = 0.08043
+idt_epoch_loss = 0.06178
+map_epoch_loss = 0.13242
+G_epoch_loss_lpips = 0.44777
+
+End of epoch 22 / 100 	 Time Taken: 1285 sec
+learning rate = 0.0002000
+total step: 10992 timer: 2.5780 sec.
+epoch 23/100, step457:458 || total loss:0.8900
+every_epoch_time =  1284.3565719127655
+D_epoch_loss = 0.17166
+D_epoch_loss_lpips = 0.12577
+D_epoch_loss_mes = 0.03227
+D_epoch_loss_d = 0.01362
+G_epoch_loss = 0.71836
+GGAN_epoch_loss = 0.08158
+idt_epoch_loss = 0.06129
+map_epoch_loss = 0.12970
+G_epoch_loss_lpips = 0.44578
+
+End of epoch 23 / 100 	 Time Taken: 1284 sec
+learning rate = 0.0002000
+total step: 11450 timer: 2.5775 sec.
+epoch 24/100, step457:458 || total loss:0.8698
+every_epoch_time =  1284.8630440235138
+D_epoch_loss = 0.16320
+D_epoch_loss_lpips = 0.12173
+D_epoch_loss_mes = 0.03138
+D_epoch_loss_d = 0.01008
+G_epoch_loss = 0.70659
+GGAN_epoch_loss = 0.08644
+idt_epoch_loss = 0.05789
+map_epoch_loss = 0.12735
+G_epoch_loss_lpips = 0.43491
+
+End of epoch 24 / 100 	 Time Taken: 1284 sec
+learning rate = 0.0002000
+total step: 11908 timer: 2.5719 sec.
+epoch 25/100, step457:458 || total loss:0.8668
+every_epoch_time =  1284.9690127372742
+D_epoch_loss = 0.16506
+D_epoch_loss_lpips = 0.12183
+D_epoch_loss_mes = 0.03074
+D_epoch_loss_d = 0.01248
+G_epoch_loss = 0.70176
+GGAN_epoch_loss = 0.08326
+idt_epoch_loss = 0.05845
+map_epoch_loss = 0.12596
+G_epoch_loss_lpips = 0.43409
+
+saving the model at the end of epoch 25, iters 11908
+End of epoch 25 / 100 	 Time Taken: 1285 sec
+learning rate = 0.0002000
+total step: 12366 timer: 2.5959 sec.
+epoch 26/100, step457:458 || total loss:0.8627
+every_epoch_time =  1285.5384328365326
+D_epoch_loss = 0.16187
+D_epoch_loss_lpips = 0.11856
+D_epoch_loss_mes = 0.03041
+D_epoch_loss_d = 0.01291
+G_epoch_loss = 0.70081
+GGAN_epoch_loss = 0.08225
+idt_epoch_loss = 0.05824
+map_epoch_loss = 0.12540
+G_epoch_loss_lpips = 0.43492
+
+End of epoch 26 / 100 	 Time Taken: 1285 sec
+learning rate = 0.0002000
+total step: 12824 timer: 2.5948 sec.
+epoch 27/100, step457:458 || total loss:0.8597
+every_epoch_time =  1285.4716334342957
+D_epoch_loss = 0.15867
+D_epoch_loss_lpips = 0.11805
+D_epoch_loss_mes = 0.02964
+D_epoch_loss_d = 0.01098
+G_epoch_loss = 0.70102
+GGAN_epoch_loss = 0.08519
+idt_epoch_loss = 0.05799
+map_epoch_loss = 0.12558
+G_epoch_loss_lpips = 0.43226
+
+End of epoch 27 / 100 	 Time Taken: 1285 sec
+learning rate = 0.0002000
+total step: 13282 timer: 2.5983 sec.
+epoch 28/100, step457:458 || total loss:0.8461
+every_epoch_time =  1284.6167283058167
+D_epoch_loss = 0.15522
+D_epoch_loss_lpips = 0.11567
+D_epoch_loss_mes = 0.02890
+D_epoch_loss_d = 0.01066
+G_epoch_loss = 0.69087
+GGAN_epoch_loss = 0.08552
+idt_epoch_loss = 0.05649
+map_epoch_loss = 0.12124
+G_epoch_loss_lpips = 0.42763
+
+End of epoch 28 / 100 	 Time Taken: 1284 sec
+learning rate = 0.0002000
+total step: 13740 timer: 2.5955 sec.
+epoch 29/100, step457:458 || total loss:0.8382
+every_epoch_time =  1284.9230489730835
+D_epoch_loss = 0.15339
+D_epoch_loss_lpips = 0.11427
+D_epoch_loss_mes = 0.02862
+D_epoch_loss_d = 0.01050
+G_epoch_loss = 0.68482
+GGAN_epoch_loss = 0.08593
+idt_epoch_loss = 0.05572
+map_epoch_loss = 0.11870
+G_epoch_loss_lpips = 0.42447
+
+End of epoch 29 / 100 	 Time Taken: 1284 sec
+learning rate = 0.0002000
+total step: 14198 timer: 2.5759 sec.
+epoch 30/100, step457:458 || total loss:0.8325
+every_epoch_time =  1284.067176103592
+D_epoch_loss = 0.15154
+D_epoch_loss_lpips = 0.11337
+D_epoch_loss_mes = 0.02796
+D_epoch_loss_d = 0.01022
+G_epoch_loss = 0.68099
+GGAN_epoch_loss = 0.08618
+idt_epoch_loss = 0.05511
+map_epoch_loss = 0.11867
+G_epoch_loss_lpips = 0.42102
+
+saving the model at the end of epoch 30, iters 14198
+End of epoch 30 / 100 	 Time Taken: 1285 sec
+learning rate = 0.0002000
+total step: 14656 timer: 2.5770 sec.
+epoch 31/100, step457:458 || total loss:0.8037
+every_epoch_time =  1284.5193440914154
+D_epoch_loss = 0.14325
+D_epoch_loss_lpips = 0.11103
+D_epoch_loss_mes = 0.02748
+D_epoch_loss_d = 0.00474
+G_epoch_loss = 0.66041
+GGAN_epoch_loss = 0.09403
+idt_epoch_loss = 0.04953
+map_epoch_loss = 0.11277
+G_epoch_loss_lpips = 0.40408
+
+End of epoch 31 / 100 	 Time Taken: 1284 sec
+learning rate = 0.0002000
+total step: 15114 timer: 2.5947 sec.
+epoch 32/100, step457:458 || total loss:0.8086
+every_epoch_time =  1283.565423488617
+D_epoch_loss = 0.14622
+D_epoch_loss_lpips = 0.10983
+D_epoch_loss_mes = 0.02701
+D_epoch_loss_d = 0.00938
+G_epoch_loss = 0.66233
+GGAN_epoch_loss = 0.08728
+idt_epoch_loss = 0.05205
+map_epoch_loss = 0.11530
+G_epoch_loss_lpips = 0.40771
+
+End of epoch 32 / 100 	 Time Taken: 1283 sec
+learning rate = 0.0002000
+total step: 15572 timer: 2.5741 sec.
+epoch 33/100, step457:458 || total loss:0.7911
+every_epoch_time =  1281.8071405887604
+D_epoch_loss = 0.13940
+D_epoch_loss_lpips = 0.10785
+D_epoch_loss_mes = 0.02636
+D_epoch_loss_d = 0.00519
+G_epoch_loss = 0.65171
+GGAN_epoch_loss = 0.09347
+idt_epoch_loss = 0.04860
+map_epoch_loss = 0.11286
+G_epoch_loss_lpips = 0.39677
+
+End of epoch 33 / 100 	 Time Taken: 1281 sec
+learning rate = 0.0002000
+total step: 16030 timer: 2.5961 sec.
+epoch 34/100, step457:458 || total loss:0.7650
+every_epoch_time =  1283.8480606079102
+D_epoch_loss = 0.13638
+D_epoch_loss_lpips = 0.10730
+D_epoch_loss_mes = 0.02636
+D_epoch_loss_d = 0.00272
+G_epoch_loss = 0.62861
+GGAN_epoch_loss = 0.09660
+idt_epoch_loss = 0.04456
+map_epoch_loss = 0.10721
+G_epoch_loss_lpips = 0.38023
+
+End of epoch 34 / 100 	 Time Taken: 1283 sec
+learning rate = 0.0002000
+total step: 16488 timer: 2.5933 sec.
+epoch 35/100, step457:458 || total loss:0.7926
+every_epoch_time =  1283.660150527954
+D_epoch_loss = 0.14061
+D_epoch_loss_lpips = 0.10544
+D_epoch_loss_mes = 0.02577
+D_epoch_loss_d = 0.00940
+G_epoch_loss = 0.65195
+GGAN_epoch_loss = 0.08690
+idt_epoch_loss = 0.05118
+map_epoch_loss = 0.11231
+G_epoch_loss_lpips = 0.40157
+
+saving the model at the end of epoch 35, iters 16488
+End of epoch 35 / 100 	 Time Taken: 1284 sec
+learning rate = 0.0002000
+total step: 16946 timer: 2.5979 sec.
+epoch 36/100, step457:458 || total loss:0.7764
+every_epoch_time =  1282.9462189674377
+D_epoch_loss = 0.13719
+D_epoch_loss_lpips = 0.10435
+D_epoch_loss_mes = 0.02515
+D_epoch_loss_d = 0.00769
+G_epoch_loss = 0.63916
+GGAN_epoch_loss = 0.08963
+idt_epoch_loss = 0.04856
+map_epoch_loss = 0.10835
+G_epoch_loss_lpips = 0.39262
+
+End of epoch 36 / 100 	 Time Taken: 1282 sec
+learning rate = 0.0002000
+total step: 17404 timer: 2.5748 sec.
+epoch 37/100, step457:458 || total loss:0.7786
+every_epoch_time =  1284.8585050106049
+D_epoch_loss = 0.13573
+D_epoch_loss_lpips = 0.10337
+D_epoch_loss_mes = 0.02537
+D_epoch_loss_d = 0.00698
+G_epoch_loss = 0.64290
+GGAN_epoch_loss = 0.09024
+idt_epoch_loss = 0.04929
+map_epoch_loss = 0.10846
+G_epoch_loss_lpips = 0.39490
+
+End of epoch 37 / 100 	 Time Taken: 1284 sec
+learning rate = 0.0002000
+total step: 17862 timer: 2.5942 sec.
+epoch 38/100, step457:458 || total loss:0.7639
+every_epoch_time =  1282.793227672577
+D_epoch_loss = 0.13275
+D_epoch_loss_lpips = 0.10205
+D_epoch_loss_mes = 0.02433
+D_epoch_loss_d = 0.00637
+G_epoch_loss = 0.63115
+GGAN_epoch_loss = 0.09174
+idt_epoch_loss = 0.04699
+map_epoch_loss = 0.10507
+G_epoch_loss_lpips = 0.38735
+
+End of epoch 38 / 100 	 Time Taken: 1282 sec
+learning rate = 0.0002000
+total step: 18320 timer: 2.5928 sec.
+epoch 39/100, step457:458 || total loss:0.7629
+every_epoch_time =  1283.7542333602905
+D_epoch_loss = 0.13460
+D_epoch_loss_lpips = 0.10123
+D_epoch_loss_mes = 0.02424
+D_epoch_loss_d = 0.00913
+G_epoch_loss = 0.62833
+GGAN_epoch_loss = 0.08786
+idt_epoch_loss = 0.04724
+map_epoch_loss = 0.10689
+G_epoch_loss_lpips = 0.38634
+
+End of epoch 39 / 100 	 Time Taken: 1283 sec
+learning rate = 0.0002000
+total step: 18778 timer: 2.5960 sec.
+epoch 40/100, step457:458 || total loss:0.7490
+every_epoch_time =  1284.86083650589
+D_epoch_loss = 0.12898
+D_epoch_loss_lpips = 0.10038
+D_epoch_loss_mes = 0.02418
+D_epoch_loss_d = 0.00443
+G_epoch_loss = 0.62000
+GGAN_epoch_loss = 0.09440
+idt_epoch_loss = 0.04468
+map_epoch_loss = 0.10347
+G_epoch_loss_lpips = 0.37746
+
+saving the model at the end of epoch 40, iters 18778
+End of epoch 40 / 100 	 Time Taken: 1285 sec
+learning rate = 0.0002000
+total step: 19236 timer: 2.5992 sec.
+epoch 41/100, step457:458 || total loss:0.7237
+every_epoch_time =  1281.0535266399384
+D_epoch_loss = 0.12449
+D_epoch_loss_lpips = 0.09935
+D_epoch_loss_mes = 0.02435
+D_epoch_loss_d = 0.00079
+G_epoch_loss = 0.59919
+GGAN_epoch_loss = 0.09943
+idt_epoch_loss = 0.04033
+map_epoch_loss = 0.09909
+G_epoch_loss_lpips = 0.36034
+
+End of epoch 41 / 100 	 Time Taken: 1281 sec
+learning rate = 0.0002000
+total step: 19694 timer: 2.5701 sec.
+epoch 42/100, step457:458 || total loss:0.7243
+every_epoch_time =  1282.8699088096619
+D_epoch_loss = 0.12615
+D_epoch_loss_lpips = 0.09847
+D_epoch_loss_mes = 0.02337
+D_epoch_loss_d = 0.00431
+G_epoch_loss = 0.59812
+GGAN_epoch_loss = 0.09438
+idt_epoch_loss = 0.04183
+map_epoch_loss = 0.09970
+G_epoch_loss_lpips = 0.36220
+
+End of epoch 42 / 100 	 Time Taken: 1282 sec
+learning rate = 0.0002000
+total step: 20152 timer: 2.6020 sec.
+epoch 43/100, step457:458 || total loss:0.7295
+every_epoch_time =  1283.6609907150269
+D_epoch_loss = 0.12500
+D_epoch_loss_lpips = 0.09660
+D_epoch_loss_mes = 0.02324
+D_epoch_loss_d = 0.00515
+G_epoch_loss = 0.60451
+GGAN_epoch_loss = 0.09323
+idt_epoch_loss = 0.04320
+map_epoch_loss = 0.09830
+G_epoch_loss_lpips = 0.36977
+
+End of epoch 43 / 100 	 Time Taken: 1283 sec
+learning rate = 0.0002000
+total step: 20610 timer: 2.6001 sec.
+epoch 44/100, step457:458 || total loss:0.6988
+every_epoch_time =  1283.541286945343
+D_epoch_loss = 0.11790
+D_epoch_loss_lpips = 0.09495
+D_epoch_loss_mes = 0.02260
+D_epoch_loss_d = 0.00036
+G_epoch_loss = 0.58085
+GGAN_epoch_loss = 0.09986
+idt_epoch_loss = 0.03808
+map_epoch_loss = 0.09451
+G_epoch_loss_lpips = 0.34841
+
+End of epoch 44 / 100 	 Time Taken: 1283 sec
+learning rate = 0.0002000
+total step: 21068 timer: 2.5742 sec.
+epoch 45/100, step457:458 || total loss:0.6945
+every_epoch_time =  1283.5667147636414
+D_epoch_loss = 0.11860
+D_epoch_loss_lpips = 0.09456
+D_epoch_loss_mes = 0.02258
+D_epoch_loss_d = 0.00146
+G_epoch_loss = 0.57592
+GGAN_epoch_loss = 0.09837
+idt_epoch_loss = 0.03841
+map_epoch_loss = 0.09435
+G_epoch_loss_lpips = 0.34479
+
+saving the model at the end of epoch 45, iters 21068
+End of epoch 45 / 100 	 Time Taken: 1284 sec
+learning rate = 0.0002000
+total step: 21526 timer: 2.5920 sec.
+epoch 46/100, step457:458 || total loss:0.7107
+every_epoch_time =  1282.9914002418518
+D_epoch_loss = 0.12388
+D_epoch_loss_lpips = 0.09381
+D_epoch_loss_mes = 0.02244
+D_epoch_loss_d = 0.00763
+G_epoch_loss = 0.58680
+GGAN_epoch_loss = 0.08945
+idt_epoch_loss = 0.04202
+map_epoch_loss = 0.09636
+G_epoch_loss_lpips = 0.35897
+
+End of epoch 46 / 100 	 Time Taken: 1282 sec
+learning rate = 0.0002000
+total step: 21984 timer: 2.5876 sec.
+epoch 47/100, step457:458 || total loss:0.7089
+every_epoch_time =  1283.0490417480469
+D_epoch_loss = 0.12006
+D_epoch_loss_lpips = 0.09241
+D_epoch_loss_mes = 0.02173
+D_epoch_loss_d = 0.00593
+G_epoch_loss = 0.58889
+GGAN_epoch_loss = 0.09195
+idt_epoch_loss = 0.04184
+map_epoch_loss = 0.09524
+G_epoch_loss_lpips = 0.35986
+
+End of epoch 47 / 100 	 Time Taken: 1283 sec
+learning rate = 0.0002000
+total step: 22442 timer: 2.5667 sec.
+epoch 48/100, step457:458 || total loss:0.6834
+every_epoch_time =  1282.2775151729584
+D_epoch_loss = 0.11390
+D_epoch_loss_lpips = 0.09186
+D_epoch_loss_mes = 0.02167
+D_epoch_loss_d = 0.00037
+G_epoch_loss = 0.56952
+GGAN_epoch_loss = 0.09980
+idt_epoch_loss = 0.03733
+map_epoch_loss = 0.09023
+G_epoch_loss_lpips = 0.34216
+
+End of epoch 48 / 100 	 Time Taken: 1282 sec
+learning rate = 0.0002000
+total step: 22900 timer: 2.6057 sec.
+epoch 49/100, step457:458 || total loss:0.6864
+every_epoch_time =  1282.8128015995026
+D_epoch_loss = 0.12045
+D_epoch_loss_lpips = 0.09165
+D_epoch_loss_mes = 0.02186
+D_epoch_loss_d = 0.00694
+G_epoch_loss = 0.56599
+GGAN_epoch_loss = 0.09000
+idt_epoch_loss = 0.03918
+map_epoch_loss = 0.09254
+G_epoch_loss_lpips = 0.34428
+
+End of epoch 49 / 100 	 Time Taken: 1282 sec
+learning rate = 0.0002000
+total step: 23358 timer: 2.5942 sec.
+epoch 50/100, step457:458 || total loss:0.7206
+every_epoch_time =  1286.1820385456085
+D_epoch_loss = 0.11991
+D_epoch_loss_lpips = 0.08968
+D_epoch_loss_mes = 0.02087
+D_epoch_loss_d = 0.00935
+G_epoch_loss = 0.60072
+GGAN_epoch_loss = 0.08658
+idt_epoch_loss = 0.04495
+map_epoch_loss = 0.09662
+G_epoch_loss_lpips = 0.37257
+
+saving the model at the end of epoch 50, iters 23358
+End of epoch 50 / 100 	 Time Taken: 1287 sec
+learning rate = 0.0001961
+total step: 23816 timer: 2.6161 sec.
+epoch 51/100, step457:458 || total loss:0.7149
+every_epoch_time =  1290.891411781311
+D_epoch_loss = 0.11850
+D_epoch_loss_lpips = 0.08973
+D_epoch_loss_mes = 0.02109
+D_epoch_loss_d = 0.00768
+G_epoch_loss = 0.59637
+GGAN_epoch_loss = 0.08964
+idt_epoch_loss = 0.04358
+map_epoch_loss = 0.09570
+G_epoch_loss_lpips = 0.36746
+
+End of epoch 51 / 100 	 Time Taken: 1290 sec
+learning rate = 0.0001922
+total step: 24274 timer: 2.6076 sec.
+epoch 52/100, step457:458 || total loss:0.7046
+every_epoch_time =  1288.0076982975006
+D_epoch_loss = 0.11530
+D_epoch_loss_lpips = 0.08848
+D_epoch_loss_mes = 0.02048
+D_epoch_loss_d = 0.00634
+G_epoch_loss = 0.58928
+GGAN_epoch_loss = 0.09135
+idt_epoch_loss = 0.04243
+map_epoch_loss = 0.09344
+G_epoch_loss_lpips = 0.36206
+
+End of epoch 52 / 100 	 Time Taken: 1288 sec
+learning rate = 0.0001882
+total step: 24732 timer: 2.5912 sec.
+epoch 53/100, step457:458 || total loss:0.6989
+every_epoch_time =  1285.4320726394653
+D_epoch_loss = 0.11212
+D_epoch_loss_lpips = 0.08659
+D_epoch_loss_mes = 0.02017
+D_epoch_loss_d = 0.00536
+G_epoch_loss = 0.58681
+GGAN_epoch_loss = 0.09275
+idt_epoch_loss = 0.04161
+map_epoch_loss = 0.09296
+G_epoch_loss_lpips = 0.35950
+
+End of epoch 53 / 100 	 Time Taken: 1285 sec
+learning rate = 0.0001843
+total step: 25190 timer: 2.5930 sec.
+epoch 54/100, step457:458 || total loss:0.6919
+every_epoch_time =  1406.7971510887146
+D_epoch_loss = 0.11216
+D_epoch_loss_lpips = 0.08592
+D_epoch_loss_mes = 0.01992
+D_epoch_loss_d = 0.00632
+G_epoch_loss = 0.57979
+GGAN_epoch_loss = 0.09132
+idt_epoch_loss = 0.04078
+map_epoch_loss = 0.09117
+G_epoch_loss_lpips = 0.35652
+
+End of epoch 54 / 100 	 Time Taken: 1406 sec
+learning rate = 0.0001804
+total step: 25648 timer: 2.6044 sec.
+epoch 55/100, step457:458 || total loss:0.6923
+every_epoch_time =  1287.9542698860168
+D_epoch_loss = 0.11137
+D_epoch_loss_lpips = 0.08560
+D_epoch_loss_mes = 0.01968
+D_epoch_loss_d = 0.00609
+G_epoch_loss = 0.58089
+GGAN_epoch_loss = 0.09172
+idt_epoch_loss = 0.04128
+map_epoch_loss = 0.09119
+G_epoch_loss_lpips = 0.35670
+
+saving the model at the end of epoch 55, iters 25648
+End of epoch 55 / 100 	 Time Taken: 1289 sec
+learning rate = 0.0001765
+total step: 26106 timer: 2.6032 sec.
+epoch 56/100, step457:458 || total loss:0.6772
+every_epoch_time =  1285.5990660190582
+D_epoch_loss = 0.10760
+D_epoch_loss_lpips = 0.08424
+D_epoch_loss_mes = 0.01947
+D_epoch_loss_d = 0.00388
+G_epoch_loss = 0.56960
+GGAN_epoch_loss = 0.09521
+idt_epoch_loss = 0.03902
+map_epoch_loss = 0.08792
+G_epoch_loss_lpips = 0.34745
+
+End of epoch 56 / 100 	 Time Taken: 1285 sec
+learning rate = 0.0001725
+total step: 26564 timer: 2.6060 sec.
+epoch 57/100, step457:458 || total loss:0.6658
+every_epoch_time =  1408.8136584758759
+D_epoch_loss = 0.10548
+D_epoch_loss_lpips = 0.08344
+D_epoch_loss_mes = 0.01927
+D_epoch_loss_d = 0.00276
+G_epoch_loss = 0.56033
+GGAN_epoch_loss = 0.09641
+idt_epoch_loss = 0.03724
+map_epoch_loss = 0.08564
+G_epoch_loss_lpips = 0.34104
+
+End of epoch 57 / 100 	 Time Taken: 1408 sec
+learning rate = 0.0001686
+==============================
+====YAML Parameters
+MODEL_SAVE_PATH: /root/project/sobel_3dsslmse_lpips001_Glipips001/X2CT-master/3DGAN/save_models
+CT_MIN_MAX: [0, 2500]
+XRAY1_MIN_MAX: [0, 255]
+XRAY2_MIN_MAX: [0, 255]
+CT_MEAN_STD: [0.0, 1.0]
+XRAY1_MEAN_STD: [0.0, 1.0]
+XRAY2_MEAN_STD: [0.0, 1.0]
+input_nc_G: 512
+output_nc_G: 1
+ngf: 64
+which_model_netG: multiview_network_denseUNetFuse_transposed
+norm_G: instance3d
+no_dropout: True
+init_type: normal
+ganloss: lsgan
+n_downsampling: 4
+n_blocks: 1
+activation_type: relu
+input_nc_D: 1
+ndf: 64
+which_model_netD: basic3d
+n_layers_D: 3
+norm_D: instance3d
+n_out_ChannelsD: 1
+pool_size: 50
+if_pool: False
+num_D: 3
+conditional_D: True
+map_input_nc_D: 1
+map_ndf: 64
+map_which_model_netD: multi2d
+map_n_layers_D: 3
+map_norm_D: instance
+map_n_out_ChannelsD: 1
+map_pool_size: 50
+map_num_D: 3
+lr: 0.0002
+beta1: 0.5
+beta2: 0.99
+serial_batches: False
+batch_size: 4
+nThreads: 5
+lr_policy: lambda
+niter: 50
+niter_decay: 50
+lr_decay_iters: 50
+print_freq: 10
+print_img_freq: 500
+save_latest_freq: 1000
+save_epoch_freq: 10
+begin_save_epoch: 0
+weight_decay_if: False
+howmany_in_train: 10
+select_slice_num: 0
+fine_size: 128
+ct_channel: 128
+xray_channel: 1
+resize_size: 150
+idt_lambda: 10.0
+idt_reduction: mean
+idt_weight: 0.0
+idt_weight_range: [0.0, 1.0]
+restruction_loss: mse
+fea_m_lambda: 10.0
+discriminator_feature: False
+wgan_gp_lambda: 10.0
+map_m_lambda: 0.0
+map_m_type: l1
+fea_m_map_lambda: 10.0
+critic_times: 1
+noise_len: 1000
+input_shape: [4, 4, 4]
+output_shape: [128, 128, 128]
+encoder_input_shape: [128, 128]
+encoder_input_nc: 1
+encoder_norm: instance
+encoder_blocks: 3
+multi_view: [1, 2, 3]
+min_max_norm: True
+skip_number: 1
+dblu: [0.0, 1.0, 1.0]
+Xray1_Direction: HDW
+Xray2_Direction: WDH
+CTOrder: [0, 1, 2, 3, 4]
+CTOrder_Xray1: [0, 1, 3, 2, 4]
+CTOrder_Xray2: [0, 1, 4, 2, 3]
+idt_loss: mse
+feature_D_lambda: 0.0
+map_projection_lambda: 10.0
+map_projection_loss: l1
+gan_lambda: 0.1
+auxiliary_lambda: 0.0
+auxiliary_loss: mse
+feature_D_map_lambda: 0.0
+map_gan_lambda: 1.0
+data: /root/autodl-tmp/sobel_3dsslmse_lpips001_Glipips001
+tag: d2_multiview2500
+dataroot: /root/autodl-tmp/LIDC90G/LIDC-HDF5-256
+dataset: train
+valid_dataset: test
+datasetfile: /root/autodl-tmp/LIDC90G/LIDC-HDF5-256/train.txt
+valid_datasetfile: /root/autodl-tmp/LIDC90G/LIDC-HDF5-256/test.txt
+ymlpath: /root/project/sobel_3dsslmse_lpips001_Glipips001/X2CT-master/3DGAN/experiment/multiview2500/d2_multiview2500.yml
+gpuid: 0
+dataset_class: align_ct_xray_views_std
+model_class: MultiViewCTGAN
+check_point: 55
+load_path: None
+latest: False
+verbose: False
+gpu_ids: [0]
+epoch_count: 56
+==============================
+Valid DataSet is AlignDataSet
+#validation images = 102
+DataSet is AlignDataSet
+#training images = 458
+Setting up Perceptual loss...
+Loading model from: /root/project/sobel_3dsslmse_lpips001_Glipips001/X2CT-master/3DGAN/lib/model/lpips/weights/v0.1/vgg.pth
+...[net-lin [vgg]] initialized
+...Done
+Model --multiView_CTGAN-- will be Used
+initialize network parameters with normal
+initialize network parameters with normal
+GAN loss: LSGAN
+**loading the model from /root/autodl-tmp/sobel_3dsslmse_lpips001_Glipips001/d2_multiview2500/checkpoint/55/55_net_G.pth
+**loading 1781 parameters from 1781(saved model), net size = 1781
+**loading the model from /root/autodl-tmp/sobel_3dsslmse_lpips001_Glipips001/d2_multiview2500/checkpoint/55/55_net_D.pth
+**loading 124 parameters from 124(saved model), net size = 124
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 72.978 M
+[Network D] Total number of parameters : 38.899 M
+-----------------------------------------------
+total step: 26106 timer: 2.6733 sec.
+epoch 55/100, step457:458 || total loss:0.6918
+every_epoch_time =  1324.093597650528
+D_epoch_loss = 0.11176
+D_epoch_loss_lpips = 0.08621
+D_epoch_loss_mes = 0.02034
+D_epoch_loss_d = 0.00521
+G_epoch_loss = 0.58004
+GGAN_epoch_loss = 0.09316
+idt_epoch_loss = 0.04086
+map_epoch_loss = 0.09158
+G_epoch_loss_lpips = 0.35444
+
+End of epoch 55 / 100 	 Time Taken: 1324 sec
+learning rate = 0.0001765
+/root/miniconda3/envs/mypytorch/lib/python3.7/site-packages/torch/optim/lr_scheduler.py:156: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+total step: 26564 timer: 2.6678 sec.
+epoch 56/100, step457:458 || total loss:0.6725
+every_epoch_time =  1322.5499753952026
+D_epoch_loss = 0.10789
+D_epoch_loss_lpips = 0.08408
+D_epoch_loss_mes = 0.01937
+D_epoch_loss_d = 0.00444
+G_epoch_loss = 0.56458
+GGAN_epoch_loss = 0.09437
+idt_epoch_loss = 0.03828
+map_epoch_loss = 0.08754
+G_epoch_loss_lpips = 0.34438
+
+End of epoch 56 / 100 	 Time Taken: 1322 sec
+learning rate = 0.0001725
+total step: 27022 timer: 2.6751 sec.
+epoch 57/100, step457:458 || total loss:0.6708
+every_epoch_time =  1451.600077867508
+D_epoch_loss = 0.10745
+D_epoch_loss_lpips = 0.08369
+D_epoch_loss_mes = 0.01916
+D_epoch_loss_d = 0.00460
+G_epoch_loss = 0.56332
+GGAN_epoch_loss = 0.09388
+idt_epoch_loss = 0.03852
+map_epoch_loss = 0.08695
+G_epoch_loss_lpips = 0.34397
+
+End of epoch 57 / 100 	 Time Taken: 1451 sec
+learning rate = 0.0001686
+==============================
+====YAML Parameters
+MODEL_SAVE_PATH: /root/project/sobel_3dsslmse_lpips001_Glipips001/X2CT-master/3DGAN/save_models
+CT_MIN_MAX: [0, 2500]
+XRAY1_MIN_MAX: [0, 255]
+XRAY2_MIN_MAX: [0, 255]
+CT_MEAN_STD: [0.0, 1.0]
+XRAY1_MEAN_STD: [0.0, 1.0]
+XRAY2_MEAN_STD: [0.0, 1.0]
+input_nc_G: 512
+output_nc_G: 1
+ngf: 64
+which_model_netG: multiview_network_denseUNetFuse_transposed
+norm_G: instance3d
+no_dropout: True
+init_type: normal
+ganloss: lsgan
+n_downsampling: 4
+n_blocks: 1
+activation_type: relu
+input_nc_D: 1
+ndf: 64
+which_model_netD: basic3d
+n_layers_D: 3
+norm_D: instance3d
+n_out_ChannelsD: 1
+pool_size: 50
+if_pool: False
+num_D: 3
+conditional_D: True
+map_input_nc_D: 1
+map_ndf: 64
+map_which_model_netD: multi2d
+map_n_layers_D: 3
+map_norm_D: instance
+map_n_out_ChannelsD: 1
+map_pool_size: 50
+map_num_D: 3
+lr: 0.0002
+beta1: 0.5
+beta2: 0.99
+serial_batches: False
+batch_size: 4
+nThreads: 5
+lr_policy: lambda
+niter: 50
+niter_decay: 50
+lr_decay_iters: 50
+print_freq: 10
+print_img_freq: 500
+save_latest_freq: 1000
+save_epoch_freq: 10
+begin_save_epoch: 0
+weight_decay_if: False
+howmany_in_train: 10
+select_slice_num: 0
+fine_size: 128
+ct_channel: 128
+xray_channel: 1
+resize_size: 150
+idt_lambda: 10.0
+idt_reduction: mean
+idt_weight: 0.0
+idt_weight_range: [0.0, 1.0]
+restruction_loss: mse
+fea_m_lambda: 10.0
+discriminator_feature: False
+wgan_gp_lambda: 10.0
+map_m_lambda: 0.0
+map_m_type: l1
+fea_m_map_lambda: 10.0
+critic_times: 1
+noise_len: 1000
+input_shape: [4, 4, 4]
+output_shape: [128, 128, 128]
+encoder_input_shape: [128, 128]
+encoder_input_nc: 1
+encoder_norm: instance
+encoder_blocks: 3
+multi_view: [1, 2, 3]
+min_max_norm: True
+skip_number: 1
+dblu: [0.0, 1.0, 1.0]
+Xray1_Direction: HDW
+Xray2_Direction: WDH
+CTOrder: [0, 1, 2, 3, 4]
+CTOrder_Xray1: [0, 1, 3, 2, 4]
+CTOrder_Xray2: [0, 1, 4, 2, 3]
+idt_loss: mse
+feature_D_lambda: 0.0
+map_projection_lambda: 10.0
+map_projection_loss: l1
+gan_lambda: 0.1
+auxiliary_lambda: 0.0
+auxiliary_loss: mse
+feature_D_map_lambda: 0.0
+map_gan_lambda: 1.0
+data: /root/autodl-tmp/sobel_3dsslmse_lpips001_Glipips001
+tag: d2_multiview2500
+dataroot: /root/autodl-tmp/LIDC90G/LIDC-HDF5-256
+dataset: train
+valid_dataset: test
+datasetfile: /root/autodl-tmp/LIDC90G/LIDC-HDF5-256/train.txt
+valid_datasetfile: /root/autodl-tmp/LIDC90G/LIDC-HDF5-256/test.txt
+ymlpath: /root/project/sobel_3dsslmse_lpips001_Glipips001/X2CT-master/3DGAN/experiment/multiview2500/d2_multiview2500.yml
+gpuid: 0
+dataset_class: align_ct_xray_views_std
+model_class: MultiViewCTGAN
+check_point: 55
+load_path: None
+latest: False
+verbose: False
+gpu_ids: [0]
+epoch_count: 56
+==============================
+Valid DataSet is AlignDataSet
+#validation images = 102
+DataSet is AlignDataSet
+#training images = 458
+Setting up Perceptual loss...
+Loading model from: /root/project/sobel_3dsslmse_lpips001_Glipips001/X2CT-master/3DGAN/lib/model/lpips/weights/v0.1/vgg.pth
+...[net-lin [vgg]] initialized
+...Done
+Model --multiView_CTGAN-- will be Used
+initialize network parameters with normal
+initialize network parameters with normal
+GAN loss: LSGAN
+**loading the model from /root/autodl-tmp/sobel_3dsslmse_lpips001_Glipips001/d2_multiview2500/checkpoint/55/55_net_G.pth
+**loading 1781 parameters from 1781(saved model), net size = 1781
+**loading the model from /root/autodl-tmp/sobel_3dsslmse_lpips001_Glipips001/d2_multiview2500/checkpoint/55/55_net_D.pth
+**loading 124 parameters from 124(saved model), net size = 124
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 72.978 M
+[Network D] Total number of parameters : 38.899 M
+-----------------------------------------------
+total step: 26106 timer: 2.6818 sec.
+epoch 55/100, step457:458 || total loss:0.6938
+every_epoch_time =  1476.7276029586792
+D_epoch_loss = 0.11502
+D_epoch_loss_lpips = 0.08730
+D_epoch_loss_mes = 0.02039
+D_epoch_loss_d = 0.00733
+G_epoch_loss = 0.57873
+GGAN_epoch_loss = 0.09009
+idt_epoch_loss = 0.04086
+map_epoch_loss = 0.09158
+G_epoch_loss_lpips = 0.35620
+
+End of epoch 55 / 100 	 Time Taken: 1476 sec
+learning rate = 0.0001765
+/root/miniconda3/envs/mypytorch/lib/python3.7/site-packages/torch/optim/lr_scheduler.py:156: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+total step: 26564 timer: 2.6811 sec.
+epoch 56/100, step457:458 || total loss:0.6789
+every_epoch_time =  1326.7490665912628
+D_epoch_loss = 0.11001
+D_epoch_loss_lpips = 0.08444
+D_epoch_loss_mes = 0.01936
+D_epoch_loss_d = 0.00621
+G_epoch_loss = 0.56884
+GGAN_epoch_loss = 0.09184
+idt_epoch_loss = 0.03950
+map_epoch_loss = 0.08758
+G_epoch_loss_lpips = 0.34991
+
+End of epoch 56 / 100 	 Time Taken: 1326 sec
+learning rate = 0.0001725
+total step: 27022 timer: 2.6774 sec.
+epoch 57/100, step457:458 || total loss:0.6691
+every_epoch_time =  1326.053790807724
+D_epoch_loss = 0.10616
+D_epoch_loss_lpips = 0.08271
+D_epoch_loss_mes = 0.01915
+D_epoch_loss_d = 0.00430
+G_epoch_loss = 0.56298
+GGAN_epoch_loss = 0.09416
+idt_epoch_loss = 0.03829
+map_epoch_loss = 0.08658
+G_epoch_loss_lpips = 0.34395
+
+End of epoch 57 / 100 	 Time Taken: 1326 sec
+learning rate = 0.0001686
+total step: 27480 timer: 2.6766 sec.
+epoch 58/100, step457:458 || total loss:0.6613
+every_epoch_time =  1327.1358263492584
+D_epoch_loss = 0.10427
+D_epoch_loss_lpips = 0.08216
+D_epoch_loss_mes = 0.01875
+D_epoch_loss_d = 0.00336
+G_epoch_loss = 0.55700
+GGAN_epoch_loss = 0.09570
+idt_epoch_loss = 0.03732
+map_epoch_loss = 0.08455
+G_epoch_loss_lpips = 0.33944
+
+End of epoch 58 / 100 	 Time Taken: 1327 sec
+learning rate = 0.0001647
+total step: 27938 timer: 2.6829 sec.
+epoch 59/100, step457:458 || total loss:0.6621
+every_epoch_time =  1326.9549124240875
+D_epoch_loss = 0.10404
+D_epoch_loss_lpips = 0.08114
+D_epoch_loss_mes = 0.01847
+D_epoch_loss_d = 0.00443
+G_epoch_loss = 0.55808
+GGAN_epoch_loss = 0.09318
+idt_epoch_loss = 0.03826
+map_epoch_loss = 0.08453
+G_epoch_loss_lpips = 0.34211
+
+End of epoch 59 / 100 	 Time Taken: 1326 sec
+learning rate = 0.0001608
+total step: 28396 timer: 2.6840 sec.
+epoch 60/100, step457:458 || total loss:0.6567
+every_epoch_time =  1327.1486949920654
+D_epoch_loss = 0.10324
+D_epoch_loss_lpips = 0.08132
+D_epoch_loss_mes = 0.01830
+D_epoch_loss_d = 0.00362
+G_epoch_loss = 0.55344
+GGAN_epoch_loss = 0.09511
+idt_epoch_loss = 0.03717
+map_epoch_loss = 0.08301
+G_epoch_loss_lpips = 0.33815
+
+saving the model at the end of epoch 60, iters 28396
+End of epoch 60 / 100 	 Time Taken: 1328 sec
+learning rate = 0.0001569
+total step: 28854 timer: 2.6829 sec.
+epoch 61/100, step457:458 || total loss:0.6493
+every_epoch_time =  1327.3438348770142
+D_epoch_loss = 0.10030
+D_epoch_loss_lpips = 0.07924
+D_epoch_loss_mes = 0.01796
+D_epoch_loss_d = 0.00310
+G_epoch_loss = 0.54897
+GGAN_epoch_loss = 0.09585
+idt_epoch_loss = 0.03643
+map_epoch_loss = 0.08207
+G_epoch_loss_lpips = 0.33463
+
+End of epoch 61 / 100 	 Time Taken: 1327 sec
+learning rate = 0.0001529
+total step: 29312 timer: 2.6831 sec.
+epoch 62/100, step457:458 || total loss:0.6400
+every_epoch_time =  1326.987577199936
+D_epoch_loss = 0.09909
+D_epoch_loss_lpips = 0.07819
+D_epoch_loss_mes = 0.01777
+D_epoch_loss_d = 0.00313
+G_epoch_loss = 0.54091
+GGAN_epoch_loss = 0.09585
+idt_epoch_loss = 0.03531
+map_epoch_loss = 0.08027
+G_epoch_loss_lpips = 0.32948
+
+End of epoch 62 / 100 	 Time Taken: 1326 sec
+learning rate = 0.0001490
+total step: 29770 timer: 2.6772 sec.
+epoch 63/100, step457:458 || total loss:0.6264
+every_epoch_time =  1327.4193983078003
+D_epoch_loss = 0.09634
+D_epoch_loss_lpips = 0.07740
+D_epoch_loss_mes = 0.01741
+D_epoch_loss_d = 0.00154
+G_epoch_loss = 0.53006
+GGAN_epoch_loss = 0.09817
+idt_epoch_loss = 0.03336
+map_epoch_loss = 0.07817
+G_epoch_loss_lpips = 0.32036
+
+End of epoch 63 / 100 	 Time Taken: 1327 sec
+learning rate = 0.0001451
+total step: 30228 timer: 2.6845 sec.
+epoch 64/100, step457:458 || total loss:0.6155
+every_epoch_time =  1326.3923575878143
+D_epoch_loss = 0.09590
+D_epoch_loss_lpips = 0.07678
+D_epoch_loss_mes = 0.01751
+D_epoch_loss_d = 0.00160
+G_epoch_loss = 0.51956
+GGAN_epoch_loss = 0.09816
+idt_epoch_loss = 0.03188
+map_epoch_loss = 0.07608
+G_epoch_loss_lpips = 0.31343
+
+End of epoch 64 / 100 	 Time Taken: 1326 sec
+learning rate = 0.0001412
+total step: 30686 timer: 2.6771 sec.
+epoch 65/100, step457:458 || total loss:0.6102
+every_epoch_time =  1326.642967224121
+D_epoch_loss = 0.09456
+D_epoch_loss_lpips = 0.07634
+D_epoch_loss_mes = 0.01731
+D_epoch_loss_d = 0.00091
+G_epoch_loss = 0.51566
+GGAN_epoch_loss = 0.09897
+idt_epoch_loss = 0.03156
+map_epoch_loss = 0.07453
+G_epoch_loss_lpips = 0.31060
+
+End of epoch 65 / 100 	 Time Taken: 1326 sec
+learning rate = 0.0001373
+total step: 31144 timer: 2.6886 sec.
+epoch 66/100, step457:458 || total loss:0.6184
+every_epoch_time =  1326.7876782417297
+D_epoch_loss = 0.09583
+D_epoch_loss_lpips = 0.07519
+D_epoch_loss_mes = 0.01675
+D_epoch_loss_d = 0.00389
+G_epoch_loss = 0.52259
+GGAN_epoch_loss = 0.09434
+idt_epoch_loss = 0.03370
+map_epoch_loss = 0.07656
+G_epoch_loss_lpips = 0.31799
+
+End of epoch 66 / 100 	 Time Taken: 1326 sec
+learning rate = 0.0001333
+total step: 31602 timer: 2.6894 sec.
+epoch 67/100, step457:458 || total loss:0.6062
+every_epoch_time =  1328.38587474823
+D_epoch_loss = 0.09257
+D_epoch_loss_lpips = 0.07446
+D_epoch_loss_mes = 0.01669
+D_epoch_loss_d = 0.00142
+G_epoch_loss = 0.51358
+GGAN_epoch_loss = 0.09830
+idt_epoch_loss = 0.03156
+map_epoch_loss = 0.07287
+G_epoch_loss_lpips = 0.31085
+
+End of epoch 67 / 100 	 Time Taken: 1328 sec
+learning rate = 0.0001294
+total step: 32060 timer: 2.6828 sec.
+epoch 68/100, step457:458 || total loss:0.5919
+every_epoch_time =  1328.609595298767
+D_epoch_loss = 0.09055
+D_epoch_loss_lpips = 0.07374
+D_epoch_loss_mes = 0.01650
+D_epoch_loss_d = 0.00031
+G_epoch_loss = 0.50136
+GGAN_epoch_loss = 0.09977
+idt_epoch_loss = 0.02958
+map_epoch_loss = 0.07124
+G_epoch_loss_lpips = 0.30077
+
+End of epoch 68 / 100 	 Time Taken: 1328 sec
+learning rate = 0.0001255
+total step: 32518 timer: 2.6790 sec.
+epoch 69/100, step457:458 || total loss:0.5987
+every_epoch_time =  1326.8619046211243
+D_epoch_loss = 0.09139
+D_epoch_loss_lpips = 0.07243
+D_epoch_loss_mes = 0.01611
+D_epoch_loss_d = 0.00285
+G_epoch_loss = 0.50729
+GGAN_epoch_loss = 0.09547
+idt_epoch_loss = 0.03162
+map_epoch_loss = 0.07269
+G_epoch_loss_lpips = 0.30752
+
+End of epoch 69 / 100 	 Time Taken: 1326 sec
+learning rate = 0.0001216
+total step: 32976 timer: 2.6982 sec.
+epoch 70/100, step457:458 || total loss:0.5946
+every_epoch_time =  1327.658356666565
+D_epoch_loss = 0.09012
+D_epoch_loss_lpips = 0.07223
+D_epoch_loss_mes = 0.01610
+D_epoch_loss_d = 0.00180
+G_epoch_loss = 0.50444
+GGAN_epoch_loss = 0.09767
+idt_epoch_loss = 0.03045
+map_epoch_loss = 0.07033
+G_epoch_loss_lpips = 0.30598
+
+saving the model at the end of epoch 70, iters 32976
+End of epoch 70 / 100 	 Time Taken: 1328 sec
+learning rate = 0.0001176
+total step: 33434 timer: 2.6781 sec.
+epoch 71/100, step457:458 || total loss:0.5803
+every_epoch_time =  1327.5397124290466
+D_epoch_loss = 0.08831
+D_epoch_loss_lpips = 0.07099
+D_epoch_loss_mes = 0.01569
+D_epoch_loss_d = 0.00163
+G_epoch_loss = 0.49199
+GGAN_epoch_loss = 0.09789
+idt_epoch_loss = 0.02897
+map_epoch_loss = 0.06825
+G_epoch_loss_lpips = 0.29688
+
+End of epoch 71 / 100 	 Time Taken: 1327 sec
+learning rate = 0.0001137
+total step: 33892 timer: 2.6827 sec.
+epoch 72/100, step457:458 || total loss:0.5765
+every_epoch_time =  1327.2511875629425
+D_epoch_loss = 0.08699
+D_epoch_loss_lpips = 0.07068
+D_epoch_loss_mes = 0.01559
+D_epoch_loss_d = 0.00072
+G_epoch_loss = 0.48955
+GGAN_epoch_loss = 0.09913
+idt_epoch_loss = 0.02840
+map_epoch_loss = 0.06717
+G_epoch_loss_lpips = 0.29484
+
+End of epoch 72 / 100 	 Time Taken: 1327 sec
+learning rate = 0.0001098
+total step: 34350 timer: 2.6817 sec.
+epoch 73/100, step457:458 || total loss:0.5635
+every_epoch_time =  1328.9355006217957
+D_epoch_loss = 0.08568
+D_epoch_loss_lpips = 0.07002
+D_epoch_loss_mes = 0.01547
+D_epoch_loss_d = 0.00019
+G_epoch_loss = 0.47785
+GGAN_epoch_loss = 0.09988
+idt_epoch_loss = 0.02663
+map_epoch_loss = 0.06519
+G_epoch_loss_lpips = 0.28615
+
+End of epoch 73 / 100 	 Time Taken: 1328 sec
+learning rate = 0.0001059
+total step: 34808 timer: 2.6917 sec.
+epoch 74/100, step457:458 || total loss:0.5588
+every_epoch_time =  1329.6353378295898
+D_epoch_loss = 0.08515
+D_epoch_loss_lpips = 0.06955
+D_epoch_loss_mes = 0.01543
+D_epoch_loss_d = 0.00017
+G_epoch_loss = 0.47370
+GGAN_epoch_loss = 0.09986
+idt_epoch_loss = 0.02662
+map_epoch_loss = 0.06406
+G_epoch_loss_lpips = 0.28316
+
+End of epoch 74 / 100 	 Time Taken: 1329 sec
+learning rate = 0.0001020
+total step: 35266 timer: 2.6771 sec.
+epoch 75/100, step457:458 || total loss:0.5693
+every_epoch_time =  1328.4849922657013
+D_epoch_loss = 0.08725
+D_epoch_loss_lpips = 0.06934
+D_epoch_loss_mes = 0.01531
+D_epoch_loss_d = 0.00260
+G_epoch_loss = 0.48203
+GGAN_epoch_loss = 0.09612
+idt_epoch_loss = 0.02875
+map_epoch_loss = 0.06599
+G_epoch_loss_lpips = 0.29119
+
+End of epoch 75 / 100 	 Time Taken: 1328 sec
+learning rate = 0.0000980
+total step: 35724 timer: 2.6817 sec.
+epoch 76/100, step457:458 || total loss:0.5511
+every_epoch_time =  1327.5949957370758
+D_epoch_loss = 0.08239
+D_epoch_loss_lpips = 0.06738
+D_epoch_loss_mes = 0.01481
+D_epoch_loss_d = 0.00020
+G_epoch_loss = 0.46871
+GGAN_epoch_loss = 0.09994
+idt_epoch_loss = 0.02577
+map_epoch_loss = 0.06242
+G_epoch_loss_lpips = 0.28058
+
+End of epoch 76 / 100 	 Time Taken: 1327 sec
+learning rate = 0.0000941
+total step: 36182 timer: 2.6759 sec.
+epoch 77/100, step457:458 || total loss:0.5438
+every_epoch_time =  1326.688060283661
+D_epoch_loss = 0.08191
+D_epoch_loss_lpips = 0.06698
+D_epoch_loss_mes = 0.01479
+D_epoch_loss_d = 0.00014
+G_epoch_loss = 0.46189
+GGAN_epoch_loss = 0.09991
+idt_epoch_loss = 0.02511
+map_epoch_loss = 0.06148
+G_epoch_loss_lpips = 0.27539
+
+End of epoch 77 / 100 	 Time Taken: 1326 sec
+learning rate = 0.0000902
+total step: 36640 timer: 2.6743 sec.
+epoch 78/100, step457:458 || total loss:0.5396
+every_epoch_time =  1325.6093859672546
+D_epoch_loss = 0.08115
+D_epoch_loss_lpips = 0.06649
+D_epoch_loss_mes = 0.01454
+D_epoch_loss_d = 0.00013
+G_epoch_loss = 0.45841
+GGAN_epoch_loss = 0.09988
+idt_epoch_loss = 0.02490
+map_epoch_loss = 0.06074
+G_epoch_loss_lpips = 0.27288
+
+End of epoch 78 / 100 	 Time Taken: 1325 sec
+learning rate = 0.0000863
+total step: 37098 timer: 2.6780 sec.
+epoch 79/100, step457:458 || total loss:0.5427
+every_epoch_time =  1326.6836612224579
+D_epoch_loss = 0.08267
+D_epoch_loss_lpips = 0.06647
+D_epoch_loss_mes = 0.01451
+D_epoch_loss_d = 0.00169
+G_epoch_loss = 0.46006
+GGAN_epoch_loss = 0.09737
+idt_epoch_loss = 0.02602
+map_epoch_loss = 0.06106
+G_epoch_loss_lpips = 0.27561
+
+End of epoch 79 / 100 	 Time Taken: 1326 sec
+learning rate = 0.0000824
+total step: 37556 timer: 2.6950 sec.
+epoch 80/100, step457:458 || total loss:0.5397
+every_epoch_time =  1325.1356220245361
+D_epoch_loss = 0.08004
+D_epoch_loss_lpips = 0.06498
+D_epoch_loss_mes = 0.01417
+D_epoch_loss_d = 0.00089
+G_epoch_loss = 0.45967
+GGAN_epoch_loss = 0.09890
+idt_epoch_loss = 0.02534
+map_epoch_loss = 0.05970
+G_epoch_loss_lpips = 0.27574
+
+saving the model at the end of epoch 80, iters 37556
+End of epoch 80 / 100 	 Time Taken: 1326 sec
+learning rate = 0.0000784
+total step: 38014 timer: 2.6783 sec.
+epoch 81/100, step457:458 || total loss:0.5265
+every_epoch_time =  1326.9074635505676
+D_epoch_loss = 0.07896
+D_epoch_loss_lpips = 0.06467
+D_epoch_loss_mes = 0.01418
+D_epoch_loss_d = 0.00011
+G_epoch_loss = 0.44758
+GGAN_epoch_loss = 0.09995
+idt_epoch_loss = 0.02355
+map_epoch_loss = 0.05733
+G_epoch_loss_lpips = 0.26676
+
+End of epoch 81 / 100 	 Time Taken: 1326 sec
+learning rate = 0.0000745
+total step: 38472 timer: 2.6734 sec.
+epoch 82/100, step457:458 || total loss:0.5230
+every_epoch_time =  1326.718166589737
+D_epoch_loss = 0.07942
+D_epoch_loss_lpips = 0.06503
+D_epoch_loss_mes = 0.01429
+D_epoch_loss_d = 0.00010
+G_epoch_loss = 0.44359
+GGAN_epoch_loss = 0.09992
+idt_epoch_loss = 0.02324
+map_epoch_loss = 0.05661
+G_epoch_loss_lpips = 0.26382
+
+End of epoch 82 / 100 	 Time Taken: 1326 sec
+learning rate = 0.0000706
+total step: 38930 timer: 2.6762 sec.
+epoch 83/100, step457:458 || total loss:0.5180
+every_epoch_time =  1325.405692100525
+D_epoch_loss = 0.07804
+D_epoch_loss_lpips = 0.06398
+D_epoch_loss_mes = 0.01397
+D_epoch_loss_d = 0.00009
+G_epoch_loss = 0.43997
+GGAN_epoch_loss = 0.09993
+idt_epoch_loss = 0.02291
+map_epoch_loss = 0.05570
+G_epoch_loss_lpips = 0.26143
+
+End of epoch 83 / 100 	 Time Taken: 1325 sec
+learning rate = 0.0000667
+total step: 39388 timer: 2.6725 sec.
+epoch 84/100, step457:458 || total loss:0.5134
+every_epoch_time =  1324.9836404323578
+D_epoch_loss = 0.07650
+D_epoch_loss_lpips = 0.06269
+D_epoch_loss_mes = 0.01373
+D_epoch_loss_d = 0.00009
+G_epoch_loss = 0.43690
+GGAN_epoch_loss = 0.09992
+idt_epoch_loss = 0.02264
+map_epoch_loss = 0.05534
+G_epoch_loss_lpips = 0.25900
+
+End of epoch 84 / 100 	 Time Taken: 1324 sec
+learning rate = 0.0000627
+total step: 39846 timer: 2.6771 sec.
+epoch 85/100, step457:458 || total loss:0.5093
+every_epoch_time =  1325.3259744644165
+D_epoch_loss = 0.07583
+D_epoch_loss_lpips = 0.06219
+D_epoch_loss_mes = 0.01355
+D_epoch_loss_d = 0.00009
+G_epoch_loss = 0.43346
+GGAN_epoch_loss = 0.09992
+idt_epoch_loss = 0.02234
+map_epoch_loss = 0.05419
+G_epoch_loss_lpips = 0.25701
+
+End of epoch 85 / 100 	 Time Taken: 1325 sec
+learning rate = 0.0000588
+total step: 40304 timer: 2.6783 sec.
+epoch 86/100, step457:458 || total loss:0.5052
+every_epoch_time =  1325.687896490097
+D_epoch_loss = 0.07482
+D_epoch_loss_lpips = 0.06131
+D_epoch_loss_mes = 0.01341
+D_epoch_loss_d = 0.00011
+G_epoch_loss = 0.43042
+GGAN_epoch_loss = 0.09990
+idt_epoch_loss = 0.02205
+map_epoch_loss = 0.05340
+G_epoch_loss_lpips = 0.25506
+
+End of epoch 86 / 100 	 Time Taken: 1325 sec
+learning rate = 0.0000549
+total step: 40762 timer: 2.6731 sec.
+epoch 87/100, step457:458 || total loss:0.5016
+every_epoch_time =  1325.1663188934326
+D_epoch_loss = 0.07466
+D_epoch_loss_lpips = 0.06118
+D_epoch_loss_mes = 0.01340
+D_epoch_loss_d = 0.00008
+G_epoch_loss = 0.42695
+GGAN_epoch_loss = 0.09992
+idt_epoch_loss = 0.02167
+map_epoch_loss = 0.05251
+G_epoch_loss_lpips = 0.25285
+
+End of epoch 87 / 100 	 Time Taken: 1325 sec
+learning rate = 0.0000510
+total step: 41220 timer: 2.6789 sec.
+epoch 88/100, step457:458 || total loss:0.4977
+every_epoch_time =  1324.936930656433
+D_epoch_loss = 0.07370
+D_epoch_loss_lpips = 0.06045
+D_epoch_loss_mes = 0.01318
+D_epoch_loss_d = 0.00008
+G_epoch_loss = 0.42399
+GGAN_epoch_loss = 0.09992
+idt_epoch_loss = 0.02145
+map_epoch_loss = 0.05171
+G_epoch_loss_lpips = 0.25091
+
+End of epoch 88 / 100 	 Time Taken: 1324 sec
+learning rate = 0.0000471
+total step: 41678 timer: 2.6716 sec.
+epoch 89/100, step457:458 || total loss:0.4957
+every_epoch_time =  1324.3129968643188
+D_epoch_loss = 0.07441
+D_epoch_loss_lpips = 0.06100
+D_epoch_loss_mes = 0.01334
+D_epoch_loss_d = 0.00008
+G_epoch_loss = 0.42133
+GGAN_epoch_loss = 0.09993
+idt_epoch_loss = 0.02119
+map_epoch_loss = 0.05098
+G_epoch_loss_lpips = 0.24924
+
+End of epoch 89 / 100 	 Time Taken: 1324 sec
+learning rate = 0.0000431
+total step: 42136 timer: 2.6757 sec.
+epoch 90/100, step457:458 || total loss:0.4923
+every_epoch_time =  1325.5274369716644
+D_epoch_loss = 0.07382
+D_epoch_loss_lpips = 0.06067
+D_epoch_loss_mes = 0.01308
+D_epoch_loss_d = 0.00007
+G_epoch_loss = 0.41852
+GGAN_epoch_loss = 0.09992
+idt_epoch_loss = 0.02093
+map_epoch_loss = 0.05019
+G_epoch_loss_lpips = 0.24748
+
+saving the model at the end of epoch 90, iters 42136
+End of epoch 90 / 100 	 Time Taken: 1326 sec
+learning rate = 0.0000392
+total step: 42594 timer: 2.6762 sec.
+epoch 91/100, step457:458 || total loss:0.4888
+every_epoch_time =  1324.8112852573395
+D_epoch_loss = 0.07270
+D_epoch_loss_lpips = 0.05968
+D_epoch_loss_mes = 0.01295
+D_epoch_loss_d = 0.00007
+G_epoch_loss = 0.41610
+GGAN_epoch_loss = 0.09992
+idt_epoch_loss = 0.02069
+map_epoch_loss = 0.04968
+G_epoch_loss_lpips = 0.24582
+
+End of epoch 91 / 100 	 Time Taken: 1324 sec
+learning rate = 0.0000353
+total step: 43052 timer: 2.6794 sec.
+epoch 92/100, step457:458 || total loss:0.4862
+every_epoch_time =  1324.8649761676788
+D_epoch_loss = 0.07233
+D_epoch_loss_lpips = 0.05924
+D_epoch_loss_mes = 0.01283
+D_epoch_loss_d = 0.00026
+G_epoch_loss = 0.41385
+GGAN_epoch_loss = 0.09971
+idt_epoch_loss = 0.02056
+map_epoch_loss = 0.04902
+G_epoch_loss_lpips = 0.24457
+
+End of epoch 92 / 100 	 Time Taken: 1324 sec
+learning rate = 0.0000314
+total step: 43510 timer: 2.6778 sec.
+epoch 93/100, step457:458 || total loss:0.4827
+every_epoch_time =  1325.112263917923
+D_epoch_loss = 0.07120
+D_epoch_loss_lpips = 0.05846
+D_epoch_loss_mes = 0.01268
+D_epoch_loss_d = 0.00007
+G_epoch_loss = 0.41152
+GGAN_epoch_loss = 0.09994
+idt_epoch_loss = 0.02025
+map_epoch_loss = 0.04839
+G_epoch_loss_lpips = 0.24295
+
+End of epoch 93 / 100 	 Time Taken: 1325 sec
+learning rate = 0.0000275
+total step: 43968 timer: 2.6745 sec.
+epoch 94/100, step457:458 || total loss:0.4806
+every_epoch_time =  1325.438833475113
+D_epoch_loss = 0.07119
+D_epoch_loss_lpips = 0.05851
+D_epoch_loss_mes = 0.01261
+D_epoch_loss_d = 0.00008
+G_epoch_loss = 0.40940
+GGAN_epoch_loss = 0.09991
+idt_epoch_loss = 0.02006
+map_epoch_loss = 0.04787
+G_epoch_loss_lpips = 0.24156
+
+End of epoch 94 / 100 	 Time Taken: 1325 sec
+learning rate = 0.0000235
+total step: 44426 timer: 2.6748 sec.
+epoch 95/100, step457:458 || total loss:0.4787
+every_epoch_time =  1325.236570596695
+D_epoch_loss = 0.07106
+D_epoch_loss_lpips = 0.05839
+D_epoch_loss_mes = 0.01257
+D_epoch_loss_d = 0.00010
+G_epoch_loss = 0.40769
+GGAN_epoch_loss = 0.09987
+idt_epoch_loss = 0.01998
+map_epoch_loss = 0.04737
+G_epoch_loss_lpips = 0.24046
+
+End of epoch 95 / 100 	 Time Taken: 1325 sec
+learning rate = 0.0000196
+total step: 44884 timer: 2.6750 sec.
+epoch 96/100, step457:458 || total loss:0.4761
+every_epoch_time =  1325.3635473251343
+D_epoch_loss = 0.07036
+D_epoch_loss_lpips = 0.05787
+D_epoch_loss_mes = 0.01241
+D_epoch_loss_d = 0.00007
+G_epoch_loss = 0.40577
+GGAN_epoch_loss = 0.09991
+idt_epoch_loss = 0.01976
+map_epoch_loss = 0.04690
+G_epoch_loss_lpips = 0.23920
+
+End of epoch 96 / 100 	 Time Taken: 1325 sec
+learning rate = 0.0000157
+total step: 45342 timer: 4.5809 sec.
+epoch 97/100, step457:458 || total loss:0.4741
+every_epoch_time =  1471.9098386764526
+D_epoch_loss = 0.07008
+D_epoch_loss_lpips = 0.05761
+D_epoch_loss_mes = 0.01241
+D_epoch_loss_d = 0.00007
+G_epoch_loss = 0.40406
+GGAN_epoch_loss = 0.09992
+idt_epoch_loss = 0.01959
+map_epoch_loss = 0.04648
+G_epoch_loss_lpips = 0.23807
+
+End of epoch 97 / 100 	 Time Taken: 1471 sec
+learning rate = 0.0000118
+total step: 45800 timer: 2.6750 sec.
+epoch 98/100, step457:458 || total loss:0.4721
+every_epoch_time =  1325.1715052127838
+D_epoch_loss = 0.06955
+D_epoch_loss_lpips = 0.05720
+D_epoch_loss_mes = 0.01229
+D_epoch_loss_d = 0.00006
+G_epoch_loss = 0.40259
+GGAN_epoch_loss = 0.09992
+idt_epoch_loss = 0.01946
+map_epoch_loss = 0.04611
+G_epoch_loss_lpips = 0.23710
+
+End of epoch 98 / 100 	 Time Taken: 1325 sec
+learning rate = 0.0000078
+total step: 46258 timer: 2.6690 sec.
+epoch 99/100, step457:458 || total loss:0.4708
+every_epoch_time =  1325.2515914440155
+D_epoch_loss = 0.06940
+D_epoch_loss_lpips = 0.05710
+D_epoch_loss_mes = 0.01223
+D_epoch_loss_d = 0.00006
+G_epoch_loss = 0.40138
+GGAN_epoch_loss = 0.09991
+idt_epoch_loss = 0.01937
+map_epoch_loss = 0.04585
+G_epoch_loss_lpips = 0.23624
+
+End of epoch 99 / 100 	 Time Taken: 1325 sec
+learning rate = 0.0000039
+total step: 46716 timer: 2.6824 sec.
+epoch 100/100, step457:458 || total loss:0.4692
+every_epoch_time =  1324.7444713115692
+D_epoch_loss = 0.06883
+D_epoch_loss_lpips = 0.05666
+D_epoch_loss_mes = 0.01210
+D_epoch_loss_d = 0.00007
+G_epoch_loss = 0.40038
+GGAN_epoch_loss = 0.09990
+idt_epoch_loss = 0.01929
+map_epoch_loss = 0.04562
+G_epoch_loss_lpips = 0.23558
+
+saving the model at the end of epoch 100, iters 46716
+End of epoch 100 / 100 	 Time Taken: 1325 sec
+learning rate = 0.0000000
+Traceback (most recent call last):
+  File "train.py", line 304, in <module>
+    print('训练100epoch所花费的时间是：%.5f h' %(end_time-start_time)/3600)
+TypeError: unsupported operand type(s) for /: 'str' and 'int'
