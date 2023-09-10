@@ -30,10 +30,10 @@ This paper proposes a new 3D self-driven generative adversarial network model ba
 ----
 ```
    
-SsACT-GAN/:
+SdCT-GAN/:
 |--model_dic/: folders include trained modesl from us
-   |    |--Sig_SsACT-GANB/: single view X-Ray to CT model
-   |    |--Mul_SsACT-GANB/: Biplanar X-Rays to CT model
+   |    |--Sig_SdCT-GANB/: single view X-Ray to CT model
+   |    |--Mul_SdCT-GANB/: Biplanar X-Rays to CT model
 |--experiment/: experiment configuration folder
    |    |--multiView2500/: multiview experiment configuration file
    |    |--singleView2500/: singleview experiment configuration file
@@ -76,17 +76,17 @@ SsACT-GAN/:
 Please use the following example settings to test our model. 
  
 1. **Single-view Input Parameters for Test Script：**  
-python3 test.py --ymlpath=./experiment/singleview2500/d2_singleview2500.yml --gpu=0 --dataroot=./data/LIDC-HDF5-256 --dataset=test --tag=d2_singleview2500 --data=LIDC256 --dataset_class=align_ct_xray_std --model_class=SingleView-SsACT-GANB --datasetfile=/data/chengsq/datah5/LIDC90G/LIDC-HDF5-256/test.txt --resultdir=/data/chengsq/SsACT-GanB/model_dic/Sig_SsACT-GANB --check_point=90 --how_many=3   
+python3 test.py --ymlpath=./experiment/singleview2500/d2_singleview2500.yml --gpu=0 --dataroot=./data/LIDC-HDF5-256 --dataset=test --tag=d2_singleview2500 --data=LIDC256 --dataset_class=align_ct_xray_std --model_class=SingleView-SdCT-GANB --datasetfile=/data/chengsq/datah5/LIDC90G/LIDC-HDF5-256/test.txt --resultdir=/data/chengsq/SdCT-GanB/model_dic/Sig_SdCT-GANB --check_point=90 --how_many=3   
 2. **Multi-view Input Parameters for Test Script：**  
-python3 test.py --ymlpath=./experiment/multiview2500/d2_multiview2500.yml --gpu=0 --dataroot=./data/LIDC-HDF5-256 --dataset=test --tag=d2_multiview2500 --data=LIDC256 --dataset_class=align_ct_xray_views_std --model_class=MultiView-SsACT-GANB --datasetfile=/data/chengsq/datah5/LIDC90G/LIDC-HDF5-256/test.txt --resultdir=/data/chengsq/SsACT-GanB/model_dic/MultiView-SsACT-GANB --check_point=90 --how_many=3
+python3 test.py --ymlpath=./experiment/multiview2500/d2_multiview2500.yml --gpu=0 --dataroot=./data/LIDC-HDF5-256 --dataset=test --tag=d2_multiview2500 --data=LIDC256 --dataset_class=align_ct_xray_views_std --model_class=MultiView-SdCT-GANB --datasetfile=/data/chengsq/datah5/LIDC90G/LIDC-HDF5-256/test.txt --resultdir=/data/chengsq/SdCT-GanB/model_dic/MultiView-SdCT-GANB --check_point=90 --how_many=3
 
 ### Train from Scratch
 Please use the following example settings to train your model. 
 
 1. **Single-view Input Parameters for Training Script：**  
-    nohup python train.py --ymlpath=.AN/experiment/singleview2500/d2_singleview2500.yml --gpu=0 --dataroot=./data/chengsq/datah5/LIDC90G/LIDC-HDF5-256 --dataset=train --tag=d2_singleview2500 --data=/data/chengsq/SsACT-GanB/model_dic/Sig_SsACT-GANB --dataset_class=align_ct_xray_std --model_class=SingleView-SsACT-GANB --datasetfile=/data/chengsq/datah5/LIDC90G/LIDC-HDF5-256/train.txt --valid_datasetfile=/data/chengsq/datah5/LIDC90G/LIDC-HDF5-256/test.txt --valid_dataset=test &
+    nohup python train.py --ymlpath=.AN/experiment/singleview2500/d2_singleview2500.yml --gpu=0 --dataroot=./data/chengsq/datah5/LIDC90G/LIDC-HDF5-256 --dataset=train --tag=d2_singleview2500 --data=/data/chengsq/SdCT-GanB/model_dic/Sig_SdCT-GANB --dataset_class=align_ct_xray_std --model_class=SingleView-SdCT-GANB --datasetfile=/data/chengsq/datah5/LIDC90G/LIDC-HDF5-256/train.txt --valid_datasetfile=/data/chengsq/datah5/LIDC90G/LIDC-HDF5-256/test.txt --valid_dataset=test &
 2. **Multi-view Input Parameters for Training Script：**  
-    nohup python train.py --ymlpath=./experiment/multiview2500/d2_multiview2500.yml --gpu=0 --dataroot=./data/chengsq/datah5/LIDC90G/LIDC-HDF5-256 --dataset=train --tag=d2_multiview2500 --data=/data/chengsq/SsACT-GanB/model_dic/MultiView-SsACT-GANB --dataset_class=align_ct_xray_views_std --model_class=MultiView-SsACT-GANB --datasetfile=/data/chengsq/datah5/LIDC90G/LIDC-HDF5-256/train.txt --valid_datasetfile=/data/chengsq/datah5/LIDC90G/LIDC-HDF5-256/test.txt --valid_dataset=test &
+    nohup python train.py --ymlpath=./experiment/multiview2500/d2_multiview2500.yml --gpu=0 --dataroot=./data/chengsq/datah5/LIDC90G/LIDC-HDF5-256 --dataset=train --tag=d2_multiview2500 --data=/data/chengsq/SdCT-GanB/model_dic/MultiView-SdCT-GANB --dataset_class=align_ct_xray_views_std --model_class=MultiView-SdCT-GANB --datasetfile=/data/chengsq/datah5/LIDC90G/LIDC-HDF5-256/train.txt --valid_datasetfile=/data/chengsq/datah5/LIDC90G/LIDC-HDF5-256/test.txt --valid_dataset=test &
 
 
 ## Acknowledgement
