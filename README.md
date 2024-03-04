@@ -24,7 +24,7 @@ This paper proposes a new 3D self-driven generative adversarial network model ba
 - Make sure CUDA and CUDNN are installed
 - Download data from X2CT-GAN(X2CT-GAN: Reconstructing CT from Biplanar X-Rays with Generative Adversarial Networks) 
   https://share.weiyun.com/5xRVfvP (from https://github.com/kylekma/X2CT)
-- Download our model's modle_dic from google cloud (https://drive.google.com/drive/folders/1VH9f1Wk0DvQt_8YwxsnMOYGYY3e8PXmA?usp=sharing)
+- Download our model's modle_dic and Pre-processed IXI data from google cloud (https://drive.google.com/drive/folders/1VH9f1Wk0DvQt_8YwxsnMOYGYY3e8PXmA?usp=sharing)
 - Download the source code and put the data file in the right location according to the code structure below
 ## Structure
 ----
